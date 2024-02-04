@@ -29,10 +29,10 @@ int main()
     Tree t;
     while(true)
     {
-        cout<<"\n\n1.Create tree "<<endl;
-        cout<<"2.Display tree "<<endl;
+        cout<<"\n\n1.Create Tree "<<endl;
+        cout<<"2.Display Tree "<<endl;
         cout<<"0.Exit"<<endl;
-        cout<<"Enter Choice ";
+        cout<<"Enter Choice:";
         cin>>ch;
         switch (ch)
         {
@@ -42,7 +42,7 @@ int main()
                 break;
             case 0: exit(0);
                 break;
-            default:    cout<<"Wrong Choice ";
+            default:    cout<<"Wrong Choice!";
         }
     }
     return 0;
@@ -53,27 +53,27 @@ void Tree::createnode()
 {
     root=new Node;
     
-    cout<<"Enter the name of the book:- ";
+    cout<<"Enter The Name Of The Book:- ";
     cin.ignore();
     getline(cin,root->name);
     
-    cout<<"Enter no of chapters in book:- ";
+    cout<<"Enter No Of Chapters In Book:- ";
     cin>>root->count;
     
     for(int i=0;i<root->count;i++)
     {
         root->child[i]=new Node;
-        cout<<"\tEnter the name of chapter "<<i+1<<":- ";
+        cout<<"\tEnter The Name Of Chapter: "<<i+1<<":- ";
         cin.ignore();
         getline(cin,root->child[i]->name);
         
-        cout<<"\tEnter no of sections in chapter "<<root->child[i]->name<<":- ";
+        cout<<"\tEnter No Of Sections In Chapter:"<<root->child[i]->name<<":- ";
         cin>>root->child[i]->count;
         
         for(int j=0;j<root->child[i]->count;j++)
         {
             root->child[i]->child[j]=new Node;
-            cout<<"\t\tEnter the name of the section "<<j+1<<":- ";
+            cout<<"\t\tEnter The Name Of The Section:"<<j+1<<":- ";
             cin.ignore();
             getline(cin,root->child[i]->child[j]->name);
             
