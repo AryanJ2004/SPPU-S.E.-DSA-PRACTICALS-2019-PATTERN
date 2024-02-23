@@ -338,16 +338,17 @@ break;
 case 2:
 p1.dispmenu(p1.root);
 break;
+case 3:
+p1.levelwisedisp(p1.root);
+break;
 case 4:
 cout<<"Height Of Tree Is:";
 cout<<p1.height();
 break;
 case 5:
-
 default:
-cout<<"invalid choice\n";
-case 3:
-p1.levelwisedisp(p1.root);
+cout<<"Invalid Choice\n";
+
 } // switch
 cout<<"\nWant To Continue Operations?(y/n)";
 cin>>ans;
