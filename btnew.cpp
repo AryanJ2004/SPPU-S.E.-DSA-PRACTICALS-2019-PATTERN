@@ -4,7 +4,7 @@ using namespace std;
 
 #define true 1
 #define false 0
-
+#define max 100
 class node
 {
 public: //access specifier
@@ -17,7 +17,6 @@ node()
     root=NULL;
     
 }
-//public:
 node * create(node *root);
 void insert(node *root,node *temp);
 void dispmenu(node *root);
@@ -30,7 +29,9 @@ void nonrecvlr(node *root);
 void nonreclvr(node *root);
 
 void nonreclrv(node *root);
-
+void levelwisedisp(node *root);
+int height(node* root);
+int height(){return height(root);}
 };
 
 node * node::create(node *root)
@@ -276,17 +277,57 @@ temp=stack[top]; //temp=pop();
 // } //while true
 
 } // end of fun
-
+void node::levelwisedisp(node *root)
+{
+node *que[max];
+int front=-1;
+int rear=-1;
+node *temp=root;
+front++;
+rear++;
+que[rear]=temp;
+while(front<=rear)
+{
+temp=que[front];
+if(temp!=NULL)
+{
+cout<<"\t"<<temp->data;
+front++;
+if(temp->left!=NULL)
+que[++rear]=temp->left;
+if(temp->right!=NULL)
+que[++rear]=temp->right;
+}
+}
+}
+int node::height(node *root)
+{
+int l=0;
+int r=0;
+//node *temp=root;
+//int count=0;
+if(root==NULL)
+{
+ return 0;
+}
+l=height(root->left);
+r=height(root->right);
+if(l>r)
+return l+1;
+else
+return r+1;
+//cout<<"Height Of Tree Is:"<<count<<endl;
+//return 0;
+}
 int main()
 {
-
 int i,ch;
 char c,ans;
 
 node p1;
 do
 {
-cout<<"1:Create binary tree \n2:DISPLAY \n3:EXIT ";
+cout<<"1:Create binary tree \n2:DISPLAY \n3:LEVELWISE DISPLAY\n4.HEIGHT OF TREE\n5.EXIT ";
 cin>>ch;
 switch(ch)
 {
@@ -297,13 +338,18 @@ break;
 case 2:
 p1.dispmenu(p1.root);
 break;
-case 3:
+case 4:
+cout<<"Height Of Tree Is:";
+cout<<p1.height();
+break;
+case 5:
 
 default:
 cout<<"invalid choice\n";
-
+case 3:
+p1.levelwisedisp(p1.root);
 } // switch
-cout<<"want to cont operations on tree?(y/n)";
+cout<<"\nWant To Continue Operations?(y/n)";
 cin>>ans;
 }while(ans=='y'||ans=='Y'); //do
 return 0;
