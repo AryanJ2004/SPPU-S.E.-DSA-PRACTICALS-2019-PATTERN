@@ -1,3 +1,6 @@
+
+//======================================INCOMPLETE PROGRAM==============================
+
 #include <iostream>
 using namespace std;
 struct node
