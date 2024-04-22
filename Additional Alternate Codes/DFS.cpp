@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+const int MAX_SIZE = 10; // Maximum size for the matrix
 
 void dfs_nonrec() {
     int n, u;
